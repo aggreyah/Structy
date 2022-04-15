@@ -29,7 +29,7 @@ public class LinkedListValues {
         updateList(node.next, values);
     }
 
-    private static List<String> linkedListValuesIterative(Node node) {
+    public static List<String> linkedListValuesIterative(Node node) {
         List<String> listValues = new ArrayList<>();
         while (node != null){
             listValues.add((String) node.value);
