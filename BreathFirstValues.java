@@ -1,18 +1,18 @@
 import java.util.ArrayDeque;
+import java.util.ArrayList;
 import java.util.List;
-import java.util.PriorityQueue;
 import java.util.Queue;
 
 public class BreathFirstValues {
     public static void main(String[] args) {
-        TreeNode a = new TreeNode("a");
-        TreeNode b = new TreeNode("b");
-        TreeNode c = new TreeNode("c");
-        TreeNode d = new TreeNode("d");
-        TreeNode e = new TreeNode("e");
-        TreeNode f = new TreeNode("f");
-        TreeNode g = new TreeNode("g");
-        TreeNode h = new TreeNode("h");
+        TreeNode<String> a = new TreeNode<>("a");
+        TreeNode<String> b = new TreeNode<>("b");
+        TreeNode<String> c = new TreeNode<>("c");
+        TreeNode<String> d = new TreeNode<>("d");
+        TreeNode<String> e = new TreeNode<>("e");
+        TreeNode<String> f = new TreeNode<>("f");
+        TreeNode<String> g = new TreeNode<>("g");
+        TreeNode<String> h = new TreeNode<>("h");
 
         a.left = b;
         a.right = c;
@@ -34,11 +34,19 @@ public class BreathFirstValues {
     //   -> ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h']
     }
 
-    private static List<String> breadthFirstValues(TreeNode root) {
+    private static List<String> breadthFirstValues(TreeNode<String> root) {
         if (root == null) return null;
-        Queue<TreeNode> queue = new ArrayDeque<>();
-        queue.add(root);
-
-        return null;
+        Queue<TreeNode<String>> queue = new ArrayDeque<>();
+        queue.offer(root);
+        List<String> result = new ArrayList<>();
+        while (!queue.isEmpty()){
+            TreeNode<String> current = queue.poll();
+            result.add(current.value);
+            if (current.left != null)
+                queue.offer(current.left);
+            if (current.right != null)
+                queue.offer(current.right);
+        }
+        return result;
     }
 }
