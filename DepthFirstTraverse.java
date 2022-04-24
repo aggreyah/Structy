@@ -22,7 +22,7 @@ public class DepthFirstTraverse {
     //  / \     \
     // d   e     f
 
-        System.out.println(depthFirstValuesRecursive(a));
+        System.out.println(depthFirstValuesRecursive(null));
     //   -> ['a', 'b', 'd', 'e', 'c', 'f']
     }
 
