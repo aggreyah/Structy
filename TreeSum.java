@@ -50,7 +50,7 @@ public class TreeSum  {
     private static int treeSumRecursive(TreeNode<Integer> root) {
         if (root == null) return 0;
 
-        return root.value + treeSum(root.left) + treeSum(root.right);
+        return root.value + treeSumRecursive(root.left) + treeSumRecursive(root.right);
     }
 
 }
