@@ -76,9 +76,9 @@ public class TreeLevels {
             else
                 levels.get(level).add(currentNode.value);
             if (currentNode.right != null)
-                stack.push(new Pair<>(currentNode.right, level + 1));
+                stack.push(new Pair<TreeNode<Character>, Integer>(currentNode.right, level + 1));
             if (currentNode.left != null)
-                stack.push(new Pair<>(currentNode.left, level + 1));
+                stack.push(new Pair<TreeNode<Character>, Integer>(currentNode.left, level + 1));
         }
         return levels;
     }
